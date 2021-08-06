@@ -20,9 +20,7 @@ object Example {
 
   val animation =
     Reactor
-      .init(-200)
-      .onTick(x => x + 1)
-      .stop(x => x > 200)
+      .linearRamp(-200, 200, 1)
       .tickRate(20.millis)
       .render{x =>
         val y = x.degrees.sin * 200
@@ -36,9 +34,10 @@ object Example {
 
 
   def main(args: Array[String]): Unit = {
-    image.draw()
+//    image.draw()
 
     // Comment out the above and uncomment the below to display the animation
+    Image.rectangle(100, 50).draw()
     // animation.run(frame)
   }
 }
